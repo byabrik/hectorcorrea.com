@@ -18,8 +18,8 @@ app.use(express.cookieParser('drink more coffee'));
 app.use(express.session({cookie: { httpOnly: false }}));
 
 // static must appear before app.router!
+app.use(express.logger());
 app.use(express.static(path.join(__dirname, 'public'))); 
-app.use(express.logger('dev'));
 app.use(app.router);
 
 // Global error handler
